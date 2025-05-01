@@ -1,0 +1,296 @@
+2025-05-01 14:19:52,138 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:19:52,138 - email_tracking - DEBUG - Generated tracking ID: 08686b1f-c3c1-47a5-affc-a063ee5943c6
+2025-05-01 14:19:52,138 - email_tracking - DEBUG - Sending email with params: {'from': 'jpethani11@gmail.com', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/08686b1f-c3c1-47a5-affc-a063ee5943c6" width="1" height="1" style="display:none">'}
+2025-05-01 14:22:00,869 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: None
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 142, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: None
+2025-05-01 14:23:51,885 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:23:51,886 - email_tracking - DEBUG - Generated tracking ID: b48234b1-96f3-4993-a4be-6a5a734bd552
+2025-05-01 14:23:51,886 - email_tracking - DEBUG - Sending email with params: {'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/b48234b1-96f3-4993-a4be-6a5a734bd552" width="1" height="1" style="display:none">'}
+2025-05-01 14:24:15,637 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: Missing `from` field.
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 142, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: Missing `from` field.
+2025-05-01 14:25:11,517 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:25:11,518 - email_tracking - DEBUG - Generated tracking ID: 0edc2132-80d6-420c-a0b4-3b480c1b6909
+2025-05-01 14:25:11,518 - email_tracking - DEBUG - Sending email with params: {'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/0edc2132-80d6-420c-a0b4-3b480c1b6909" width="1" height="1" style="display:none">'}
+2025-05-01 14:25:16,899 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: Missing `from` field.
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 142, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: Missing `from` field.
+2025-05-01 14:25:42,387 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:25:42,388 - email_tracking - DEBUG - Generated tracking ID: 16f8323d-926e-4fb8-9884-6b67e56da6dc
+2025-05-01 14:25:42,388 - email_tracking - DEBUG - Sending email with params: {'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/16f8323d-926e-4fb8-9884-6b67e56da6dc" width="1" height="1" style="display:none">'}
+2025-05-01 14:25:47,401 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: Missing `from` field.
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 142, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: Missing `from` field.
+2025-05-01 14:25:59,198 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:25:59,198 - email_tracking - DEBUG - Generated tracking ID: 35f39a0b-bfd3-4496-9029-b710c1392953
+2025-05-01 14:25:59,198 - email_tracking - DEBUG - Sending email with params: {'from': 'your-email@gmail.com', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/35f39a0b-bfd3-4496-9029-b710c1392953" width="1" height="1" style="display:none">'}
+2025-05-01 14:26:02,718 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: None
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 142, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: None
+2025-05-01 14:28:19,385 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:28:19,386 - email_tracking - DEBUG - Generated tracking ID: 43ce7143-2e10-4ded-b89f-f7603e26a59f
+2025-05-01 14:28:19,386 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/43ce7143-2e10-4ded-b89f-f7603e26a59f" width="1" height="1" style="display:none">'}
+2025-05-01 14:28:32,256 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: 'dict' object has no attribute 'id'
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 143, in send_email
+    logger.info(f"Email sent successfully to {email_request.to} with ID: {email.id}")
+                                                                          ^^^^^^^^
+AttributeError: 'dict' object has no attribute 'id'
+2025-05-01 14:29:34,151 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:29:34,152 - email_tracking - DEBUG - Generated tracking ID: 7bbf3552-7568-404c-8a9a-82ec758ec3c6
+2025-05-01 14:29:34,152 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/7bbf3552-7568-404c-8a9a-82ec758ec3c6" width="1" height="1" style="display:none">'}
+2025-05-01 14:29:58,260 - email_tracking - ERROR - Error sending email to jpethani11@gmail.com: 'dict' object has no attribute 'id'
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 143, in send_email
+    logger.info(f"Email sent successfully to {email_request.to} with ID: {email.get('id')}")
+                                                                          ^^^^^^^^
+AttributeError: 'dict' object has no attribute 'id'
+2025-05-01 14:30:00,645 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:30:00,646 - email_tracking - DEBUG - Generated tracking ID: 397e9d59-3e4b-4aa5-b71f-e90a68f1a775
+2025-05-01 14:30:00,646 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="http://localhost:8000/track/397e9d59-3e4b-4aa5-b71f-e90a68f1a775" width="1" height="1" style="display:none">'}
+2025-05-01 14:30:01,752 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 9544311f-6771-420f-85ee-2fc0bde4fa0f
+2025-05-01 14:37:44,902 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 14:37:44,903 - email_tracking - DEBUG - Generated tracking ID: e08e75ea-0943-4770-86dd-27fc0bbdef14
+2025-05-01 14:37:44,903 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/e08e75ea-0943-4770-86dd-27fc0bbdef14" width="1" height="1" style="display:none">'}
+2025-05-01 14:37:46,518 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 0c13beb3-1f1c-4204-bc4a-3d8726ec3fca
+2025-05-01 14:38:57,806 - email_tracking - INFO - Tracking pixel accessed for tracking_id: e08e75ea-0943-4770-86dd-27fc0bbdef14
+2025-05-01 14:38:57,807 - email_tracking - DEBUG - Client IP: 182.65.87.6
+2025-05-01 14:38:58,232 - email_tracking - DEBUG - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 14:42:29,764 - email_tracking - INFO - Attempting to send email to dadodos299@nutrv.com
+2025-05-01 14:42:29,765 - email_tracking - DEBUG - Generated tracking ID: f6b2ee55-2c5c-4443-addc-a0c094908e43
+2025-05-01 14:42:29,766 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['dadodos299@nutrv.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/f6b2ee55-2c5c-4443-addc-a0c094908e43" width="1" height="1" style="display:none">'}
+2025-05-01 14:42:34,485 - email_tracking - ERROR - Error sending email to dadodos299@nutrv.com: None
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 145, in send_email
+    email: resend.Email = resend.Emails.send(params)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/emails/_emails.py", line 189, in send
+    ).perform_with_content()
+      ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 76, in perform_with_content
+    resp = self.perform()
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/request.py", line 59, in perform
+    raise_for_code_and_type(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        code=error.get("statusCode"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        message=error.get("message"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        error_type=error.get("name"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/resend/exceptions.py", line 219, in raise_for_code_and_type
+    raise ResendError(
+        code=code, message=message, error_type=error_type, suggested_action=""
+    )
+resend.exceptions.ResendError: None
+2025-05-01 15:00:23,990 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:00:23,991 - email_tracking - DEBUG - Generated tracking ID: b1bb6924-e1c2-49fb-bb71-18365234161f
+2025-05-01 15:00:23,991 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/b1bb6924-e1c2-49fb-bb71-18365234161f.png" width="1" height="1" style="display:none">'}
+2025-05-01 15:00:25,139 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 57d17c41-49c3-4fff-89ba-48f3b27e71d4
+2025-05-01 15:01:49,805 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:01:49,805 - email_tracking - DEBUG - Generated tracking ID: 8eda9045-4c44-43ca-9c4d-20df7f16abd4
+2025-05-01 15:01:49,805 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://picsum.photos/200" width="1" height="1" style="display:none">'}
+2025-05-01 15:01:50,850 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 2cd11be0-5951-4412-bb27-de887068244d
+2025-05-01 15:04:30,632 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:04:30,633 - email_tracking - DEBUG - Generated tracking ID: 5c2032b6-f1c8-48c2-9520-97347153c9dd
+2025-05-01 15:04:30,633 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/5c2032b6-f1c8-48c2-9520-97347153c9dd" width="1" height="1" style="display:none">'}
+2025-05-01 15:04:31,808 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: e308eba3-fe58-406d-9307-737463bd19e0
+2025-05-01 15:04:57,922 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 5c2032b6-f1c8-48c2-9520-97347153c9dd
+2025-05-01 15:04:57,923 - email_tracking - DEBUG - Client IP: 182.65.87.6
+2025-05-01 15:04:58,297 - email_tracking - DEBUG - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:05:37,155 - email_tracking - ERROR - Error processing tracking pixel for 5c2032b6-f1c8-48c2-9520-97347153c9dd: Response.__init__() got an unexpected keyword argument 'location'
+Traceback (most recent call last):
+  File "/Users/janardanpethani/Documents/LaNet Test Tasks/EmailTrackingTask/main.py", line 198, in track_email
+    return Response(content=pixel, media_type="image/png", location="https://picsum.photos/200")
+TypeError: Response.__init__() got an unexpected keyword argument 'location'
+2025-05-01 15:07:13,367 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:07:13,368 - email_tracking - DEBUG - Generated tracking ID: 1fd93017-c63a-4f5d-ba80-2a5efb13ff0c
+2025-05-01 15:07:13,368 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/1fd93017-c63a-4f5d-ba80-2a5efb13ff0c" width="1" height="1" style="display:none">'}
+2025-05-01 15:07:14,430 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 0abc0bd1-bf35-47fa-97d6-3b5bf9efb892
+2025-05-01 15:07:44,649 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 1fd93017-c63a-4f5d-ba80-2a5efb13ff0c
+2025-05-01 15:07:44,649 - email_tracking - DEBUG - Client IP: 182.65.87.6
+2025-05-01 15:07:45,016 - email_tracking - DEBUG - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:08:41,778 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:08:41,778 - email_tracking - DEBUG - Generated tracking ID: a7fa6a32-3a84-438c-8c33-e94f4c128da9
+2025-05-01 15:08:41,778 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/a7fa6a32-3a84-438c-8c33-e94f4c128da9" width="1" height="1" style="display:none">'}
+2025-05-01 15:08:42,793 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: a1340232-fcf5-4c0b-a52e-95dcd815f6d1
+2025-05-01 15:09:14,796 - email_tracking - INFO - Tracking pixel accessed for tracking_id: a7fa6a32-3a84-438c-8c33-e94f4c128da9
+2025-05-01 15:09:14,797 - email_tracking - DEBUG - Client IP: 182.65.87.6
+2025-05-01 15:09:15,148 - email_tracking - DEBUG - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:09:45,308 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:09:45,309 - email_tracking - DEBUG - Generated tracking ID: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:09:45,309 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/5fa7d205-9743-4922-af65-aa89e2573c8b" width="1" height="1" style="display:none">'}
+2025-05-01 15:09:46,783 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: add2a264-5f4f-4c1e-be9f-7469acfd1369
+2025-05-01 15:10:16,183 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:10:16,184 - email_tracking - DEBUG - Client IP: 182.65.87.6
+2025-05-01 15:10:16,541 - email_tracking - DEBUG - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:11:45,365 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:11:45,366 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:11:45,735 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:11:45,735 - email_tracking - WARNING - Tracking ID not found: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:12:25,416 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:12:25,417 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:12:25,419 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:12:25,419 - email_tracking - WARNING - Tracking ID not found: 5fa7d205-9743-4922-af65-aa89e2573c8b
+2025-05-01 15:14:31,591 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:14:31,592 - email_tracking - DEBUG - Generated tracking ID: 9a1e7b4b-ae3a-407d-abee-82f44b62319a
+2025-05-01 15:14:31,593 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/9a1e7b4b-ae3a-407d-abee-82f44b62319a" width="1" height="1" style="display:none">'}
+2025-05-01 15:14:32,679 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: df2b6cef-cb86-489f-8715-0316916f05fb
+2025-05-01 15:15:01,209 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 9a1e7b4b-ae3a-407d-abee-82f44b62319a
+2025-05-01 15:15:01,210 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:15:01,577 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:15:17,751 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 9a1e7b4b-ae3a-407d-abee-82f44b62319a
+2025-05-01 15:15:17,751 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:15:17,754 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:27:24,897 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:27:24,898 - email_tracking - DEBUG - Generated tracking ID: 7a45581a-c667-4900-b1e0-4abf3b427713
+2025-05-01 15:27:24,900 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<img src="https://a2ec-182-65-87-6.ngrok-free.app/track/7a45581a-c667-4900-b1e0-4abf3b427713" width="1" height="1" style="display:none">'}
+2025-05-01 15:27:25,564 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: b9bb99de-0ce8-4057-b01d-4e13013e9bb6
+2025-05-01 15:28:22,556 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 7a45581a-c667-4900-b1e0-4abf3b427713
+2025-05-01 15:28:22,557 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:28:22,930 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:32:07,006 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 7a45581a-c667-4900-b1e0-4abf3b427713
+2025-05-01 15:32:07,007 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:32:07,010 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:32:51,190 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 7a45581a-c667-4900-b1e0-4abf3b427713
+2025-05-01 15:32:51,191 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:32:51,192 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:32:51,193 - email_tracking - INFO - Email forwarded detected for tracking_id: 7a45581a-c667-4900-b1e0-4abf3b427713
+2025-05-01 15:32:51,195 - email_tracking - INFO - Forwarded email tracked from 182.65.87.6
+2025-05-01 15:39:56,314 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:39:56,314 - email_tracking - DEBUG - Generated tracking ID: 67f59331-569e-4024-a3f9-e2d2f4d2f2a7
+2025-05-01 15:39:56,318 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<div style="background: url(https://a2ec-182-65-87-6.ngrok-free.app/track/67f59331-569e-4024-a3f9-e2d2f4d2f2a7); width: 1px; height: 1px; position: absolute; top: 0; left: 0;"></div>'}
+2025-05-01 15:39:57,366 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 7c6ef8a8-70c2-451e-a776-e3b8c2b45f27
+2025-05-01 15:44:46,695 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:44:46,695 - email_tracking - DEBUG - Generated tracking ID: e4bfd9db-891f-4a34-9578-f3bd9e094317
+2025-05-01 15:44:46,698 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<div style="background: url(https://a2ec-182-65-87-6.ngrok-free.app/track/e4bfd9db-891f-4a34-9578-f3bd9e094317); width: 1px; height: 1px; position: absolute; top: 0; left: 0;"></div>'}
+2025-05-01 15:44:47,691 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: 5d0ba8ae-642d-43f2-8f75-c2d6573e4167
+2025-05-01 15:55:55,047 - email_tracking - INFO - Attempting to send email to jpethani11@gmail.com
+2025-05-01 15:55:55,048 - email_tracking - DEBUG - Generated tracking ID: 66e51e95-f177-4896-bc84-e1e2ae5e8266
+2025-05-01 15:55:55,053 - email_tracking - DEBUG - Sending email with params: {'from': 'Acme <onboarding@resend.dev>', 'to': ['jpethani11@gmail.com'], 'subject': 'string', 'html': 'string<div style="background: url(https://a2ec-182-65-87-6.ngrok-free.app/track/66e51e95-f177-4896-bc84-e1e2ae5e8266); width: 1px; height: 1px; position: absolute; top: 0; left: 0;"></div>'}
+2025-05-01 15:55:56,355 - email_tracking - INFO - Email sent successfully to jpethani11@gmail.com with ID: bbb5dc2a-c179-41cc-9a3b-aeb6904e02bd
+2025-05-01 15:58:50,013 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 66e51e95-f177-4896-bc84-e1e2ae5e8266
+2025-05-01 15:58:50,014 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:58:50,399 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 15:58:59,084 - email_tracking - INFO - Tracking pixel accessed for tracking_id: 66e51e95-f177-4896-bc84-e1e2ae5e8266
+2025-05-01 15:58:59,085 - email_tracking - INFO - Client IP: 182.65.87.6
+2025-05-01 15:58:59,086 - email_tracking - INFO - Location details: {'ip': '182.65.87.6', 'city': 'Ahmedabad', 'region': 'Gujarat', 'country': 'IN', 'loc': '23.0258,72.5873', 'org': 'AS24560 Bharti Airtel Ltd., Telemedia Services', 'timezone': 'Asia/Kolkata'}
+2025-05-01 16:00:36,111 - email_tracking - INFO - Root endpoint accessed
