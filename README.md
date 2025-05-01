@@ -1,77 +1,180 @@
-# Email Tracking System
+# Email Tracking Service
 
-This is a FastAPI application that implements email tracking using a tracking pixel. The system tracks when emails are opened, the location of the recipient, and if the email has been forwarded.
+A FastAPI-based email tracking service that uses Resend for sending emails and includes tracking capabilities. The service tracks email opens, recipient locations, and forwarding information.
 
 ## Features
 
-- Track when emails are opened
-- Track recipient location using ipinfo.io (city, region, country, coordinates, ISP)
-- Track forwarded emails
-- Track forwarded email opens and locations
-- Simple API endpoints for sending and tracking emails
+- 📧 Send emails with tracking capabilities
+- 📍 Track recipient location (city, region, country, coordinates)
+- ⏱️ Record exact time of email opens
+- 🔄 Track email forwarding
+- 📊 Store tracking data in JSON format
+- 🔒 Secure tracking with unique tracking IDs
 
-## Setup
+## Prerequisites
 
-1. Install dependencies:
+- Python 3.8+
+- Resend API key
+- IPInfo API key (for location tracking)
+- ngrok or similar service for exposing the tracking endpoint
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd email-tracking-service
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Create a `.env` file with your API keys:
-```
-RESEND_API_KEY=your_resend_api_key
+4. Create a `.env` file with your API keys:
+```env
+RESEND_API_KEY=your_resend_key
+LIVE_API=your_ngrok_url
 IPINFO_TOKEN=your_ipinfo_token
 ```
 
-3. Run the application:
+## Usage
+
+### Starting the Server
+
+Run the FastAPI server:
 ```bash
-uvicorn main:app --reload
+python main.py
 ```
 
-## API Endpoints
+The server will start on `http://localhost:8000`.
 
-### Send Email
+### API Endpoints
+
+1. **Send Email with Tracking**
+```bash
+curl -X POST "http://localhost:8000/send-email" \
+-H "Content-Type: application/json" \
+-d '{
+    "to": "recipient@example.com",
+    "subject": "Test Email with Tracking",
+    "html": "<h1>Test Email</h1><p>This email contains a tracking pixel.</p>"
+}'
 ```
-POST /send-email
-```
-Request body:
+
+Response:
 ```json
 {
-    "to": "recipient@example.com",
-    "subject": "Test Email",
-    "html": "<h1>Hello</h1><p>This is a test email</p>",
-    "from_email": "your-email@gmail.com"
+    "message": "Email sent successfully",
+    "email_id": "email_id_from_resend",
+    "tracking_id": "unique_tracking_id"
 }
 ```
 
-### Get Tracking Data
+2. **Get Tracking Data**
+```bash
+curl "http://localhost:8000/tracking-data/{tracking_id}"
 ```
-GET /tracking-data/{tracking_id}
+
+Response:
+```json
+{
+    "email_id": "unique_tracking_id",
+    "recipient_email": "recipient@example.com",
+    "open_time": "2024-03-21T10:00:00",
+    "location": {
+        "ip": "1.2.3.4",
+        "city": "New York",
+        "region": "New York",
+        "country": "US",
+        "loc": "40.7128,-74.0060",
+        "org": "ISP Name",
+        "timezone": "America/New_York"
+    },
+    "forwarded_to": ["forwarded@example.com"],
+    "forwarded_data": [
+        {
+            "open_time": "2024-03-21T11:00:00",
+            "location": {
+                "ip": "5.6.7.8",
+                "city": "London",
+                "region": "England",
+                "country": "GB",
+                "loc": "51.5074,-0.1278",
+                "org": "ISP Name",
+                "timezone": "Europe/London"
+            },
+            "email": "forwarded@example.com"
+        }
+    ]
+}
 ```
 
-## How it Works
+### Tracking Data Storage
 
-1. When you send an email, a unique tracking ID is generated
-2. A transparent 1x1 pixel image is embedded in the email
-3. When the email is opened, the pixel is loaded, triggering the tracking endpoint
-4. The system records:
-   - Time and date of opening
-   - Detailed location information (city, region, country, coordinates, ISP)
-   - Forwarding information (if applicable)
+Tracking data is stored in `data/tracking_data.json`. The file is automatically created and updated when:
+- A new email is sent
+- An email is opened
+- An email is forwarded
 
-## Location Tracking
+## How It Works
 
-The system uses ipinfo.io to provide detailed location information:
-- City
-- Region/State
-- Country
-- Latitude and Longitude
-- ISP/Organization
-- Timezone
+1. **Email Sending**:
+   - Generates a unique tracking ID
+   - Creates a tracking pixel URL
+   - Embeds the tracking pixel in the email HTML
+   - Sends the email using Resend
 
-## Notes
+2. **Email Tracking**:
+   - When the email is opened, the tracking pixel is loaded
+   - The service records:
+     - Time of opening
+     - Recipient's location
+     - Forwarding information (if applicable)
 
-- This implementation uses in-memory storage. For production use, you should implement a proper database.
-- The tracking pixel works best with HTML emails.
-- Make sure to replace "your-email@gmail.com" with your actual Gmail address in the code.
-- You need to sign up for an ipinfo.io account to get an API token for location tracking. 
+3. **Location Tracking**:
+   - Uses IPInfo to get detailed location data
+   - Tracks city, region, country, coordinates
+   - Includes ISP and timezone information
+
+## Security Considerations
+
+- Tracking IDs are unique UUIDs
+- No personal data is stored beyond email addresses
+- Location data is based on IP addresses only
+- Tracking data is stored locally in JSON format
+
+## Troubleshooting
+
+1. **Email Not Sending**:
+   - Verify your Resend API key
+   - Check your email quota
+   - Ensure the recipient email is valid
+
+2. **Tracking Not Working**:
+   - Verify your ngrok URL is correct
+   - Check if the tracking endpoint is accessible
+   - Ensure the IPInfo token is valid
+
+3. **Location Data Missing**:
+   - Verify your IPInfo token
+   - Check if the IP address is valid
+   - Ensure the service has internet access
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
