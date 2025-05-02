@@ -35,12 +35,14 @@ class EmailRequest(BaseModel):
 class LocationInfo:
     def __init__(self, ipinfo_token: str):
         self.handler = ipinfo.getHandler(ipinfo_token)
+        logger.info("LocationInfo initialized with token")
 
     def get_details(self, ip_address: str) -> Dict[str, Any]:
         """Get detailed location information using ipinfo.io"""
+        logger.info(f"Getting location details for IP: {ip_address}")
         try:
             details = self.handler.getDetails(ip_address)
-            return {
+            location_data = {
                 "ip": ip_address,
                 "city": details.city,
                 "region": details.region,
@@ -49,27 +51,35 @@ class LocationInfo:
                 "org": details.org,
                 "timezone": details.timezone
             }
+            logger.info(f"Successfully retrieved location details: {location_data}")
+            return location_data
         except Exception as e:
             logger.error(f"Error getting location details for IP {ip_address}: {str(e)}")
             return {"ip": ip_address, "error": str(e)}
 
 class TrackingDataManager:
     def __init__(self, data_file: Path):
+        logger.info(f"Initializing TrackingDataManager with data file: {data_file}")
         self.data_file = data_file
         self.data = self._load_data()
+        logger.info(f"Loaded {len(self.data)} tracking records")
 
     def _ensure_data_dir(self):
         """Ensure data directory exists"""
+        logger.info("Ensuring data directory exists")
         DATA_DIR.mkdir(exist_ok=True)
 
     def _load_data(self) -> Dict[str, Any]:
         """Load tracking data from JSON file"""
+        logger.info("Loading tracking data from file")
         try:
             self._ensure_data_dir()
             if self.data_file.exists():
                 with open(self.data_file, 'r') as f:
                     data = json.load(f)
+                    logger.info(f"Successfully loaded {len(data)} tracking records")
                     return self._deserialize_dates(data)
+            logger.info("No existing tracking data file found")
             return {}
         except Exception as e:
             logger.error(f"Error loading tracking data: {str(e)}")
@@ -103,21 +113,27 @@ class TrackingDataManager:
 
     def save_data(self):
         """Save tracking data to JSON file"""
+        logger.info("Saving tracking data to file")
         try:
             self._ensure_data_dir()
             with open(self.data_file, 'w') as f:
                 json.dump(self._serialize_dates(self.data), f, indent=2)
+            logger.info("Successfully saved tracking data")
         except Exception as e:
             logger.error(f"Error saving tracking data: {str(e)}")
 
     def get_tracking_data(self, tracking_id: str) -> Dict[str, Any]:
         """Get tracking data for a specific ID"""
+        logger.info(f"Getting tracking data for ID: {tracking_id}")
         if tracking_id not in self.data:
+            logger.warning(f"Tracking ID not found: {tracking_id}")
             raise HTTPException(status_code=404, detail="Tracking ID not found")
+        logger.info(f"Found tracking data for ID: {tracking_id}")
         return self.data[tracking_id]
 
     def initialize_tracking(self, tracking_id: str, recipient_email: str):
         """Initialize tracking data for a new email"""
+        logger.info(f"Initializing tracking for ID: {tracking_id}, email: {recipient_email}")
         self.data[tracking_id] = {
             "email_id": tracking_id,
             "recipient_email": recipient_email,
@@ -127,14 +143,17 @@ class TrackingDataManager:
             "forwarded_data": []
         }
         self.save_data()
+        logger.info(f"Successfully initialized tracking for ID: {tracking_id}")
 
     def update_tracking(self, tracking_id: str, location: Dict[str, Any], is_forwarded: bool = False):
         """Update tracking data for an email open"""
+        logger.info(f"Updating tracking for ID: {tracking_id}, is_forwarded: {is_forwarded}")
         if tracking_id not in self.data:
             logger.warning(f"Tracking ID not found: {tracking_id}")
             return
 
         if is_forwarded:
+            logger.info(f"Processing forwarded email for ID: {tracking_id}")
             forwarded_to = location["ip"]
             self.data[tracking_id]["forwarded_to"].append(forwarded_to)
             self.data[tracking_id]["forwarded_data"].append({
@@ -142,18 +161,24 @@ class TrackingDataManager:
                 "location": location,
                 "email": forwarded_to
             })
+            logger.info(f"Updated forwarded data for ID: {tracking_id}")
         else:
+            logger.info(f"Processing direct email open for ID: {tracking_id}")
             self.data[tracking_id]["open_time"] = datetime.utcnow()
             self.data[tracking_id]["location"] = location
+            logger.info(f"Updated direct open data for ID: {tracking_id}")
 
         self.save_data()
+        logger.info(f"Successfully saved tracking update for ID: {tracking_id}")
 
 class EmailTracker:
     def __init__(self, resend_api_key: str, live_api: str, ipinfo_token: str):
+        logger.info("Initializing EmailTracker")
         resend.api_key = resend_api_key
         self.live_api = live_api
         self.location_info = LocationInfo(ipinfo_token)
         self.tracking_manager = TrackingDataManager(TRACKING_DATA_FILE)
+        logger.info("EmailTracker initialized successfully")
 
     def create_tracking_pixel(self, tracking_id: str) -> str:
         """Create tracking pixel URL"""
@@ -194,14 +219,21 @@ class EmailTracker:
 
     def track_email_open(self, tracking_id: str, request: Request) -> Response:
         """Track email open and return tracking pixel"""
+        logger.info(f"Processing tracking pixel request for ID: {tracking_id}")
         try:
             client_ip = request.client.host
+            logger.info(f"Client IP: {client_ip}")
+            
             location = self.location_info.get_details(client_ip)
+            logger.info(f"Location details retrieved: {location}")
             
             # Check if this is a forwarded email
-            is_forwarded = bool(request.headers.get("referer") and "mail.google.com" in request.headers.get("referer", ""))
+            referer = request.headers.get("referer", "")
+            is_forwarded = bool(referer and "mail.google.com" in referer)
+            logger.info(f"Email forwarded check: {is_forwarded}, Referer: {referer}")
             
             self.tracking_manager.update_tracking(tracking_id, location, is_forwarded)
+            logger.info(f"Successfully updated tracking data for ID: {tracking_id}")
 
             headers = {
                 "Content-Type": PIXEL_MEDIA_TYPE,
@@ -210,9 +242,10 @@ class EmailTracker:
                 "Pragma": "no-cache",
                 "Expires": "0"
             }
+            logger.info("Returning tracking pixel response")
             return Response(content=PIXEL_GIF_BYTES, status_code=200, headers=headers)
         except Exception as e:
-            logger.error(f"Error processing tracking pixel: {str(e)}")
+            logger.error(f"Error processing tracking pixel for {tracking_id}: {str(e)}")
             raise HTTPException(status_code=500, detail=str(e))
 
 # Initialize FastAPI app
